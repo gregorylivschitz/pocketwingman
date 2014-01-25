@@ -28,8 +28,8 @@ def index(request):
     return render(request, 'pocketwingman/index.html', context)
 
 
-def help_me_all_purpose(request):
-    latest_result_list = Result.objects.filter(category_id__in=[5])
+def help_me(request,category_id):
+    latest_result_list = Result.objects.filter(category_id__in=[category_id])
     context = {'latest_result_list': latest_result_list}
     return render(request, 'pocketwingman/index.html', context)
 
