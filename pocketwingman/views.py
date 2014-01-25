@@ -1,10 +1,14 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponseRedirect
+from django.template import RequestContext
+from django.shortcuts import render_to_response
+from django.http import request
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.utils import timezone
 
+
 from pocketwingman.models import Category, Result
+from pocketwingman.forms import ResultForm, CategoryForm
 
 #class IndexView(generic.ListView):
 #    template_name = 'pocketwingman/index.html'
@@ -22,14 +26,27 @@ def index(request):
     context = {'latest_result_list': latest_result_list}
     return render(request, 'pocketwingman/index.html', context)
 
-def index(request):
-    latest_result_list = Result.objects.all().order_by('created_on')[:1]
-    context = {'latest_result_list': latest_result_list}
-    return render(request, 'pocketwingman/index.html', context)
-
 
 def help_me(request,category_id):
     latest_result_list = Result.objects.filter(category_id__in=[category_id])
     context = {'latest_result_list': latest_result_list}
     return render(request, 'pocketwingman/index.html', context)
+
+def help_out(request):
+    context = RequestContext(request)
+    if request.method == 'POST':
+        form = ResultForm(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+
+            return index(request)
+
+        else:
+            print form.errors
+
+    else:
+        form = ResultForm
+    return render_to_response('pocketwingman/help_out.html', {'form': form}, context)
+
 
