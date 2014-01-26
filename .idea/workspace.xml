@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="164e017d-ec10-4514-8a76-b07b45230c86" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/forms.py" afterPath="$PROJECT_DIR$/pocketwingman/forms.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me_result.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_out.html" afterPath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_out_result.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me.html" afterPath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_out.html" afterPath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_out.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/models.py" afterPath="$PROJECT_DIR$/pocketwingman/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/index.html" afterPath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/urls.py" afterPath="$PROJECT_DIR$/pocketwingman/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/views.py" afterPath="$PROJECT_DIR$/pocketwingman/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -30,10 +32,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pocketwingman/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="9" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.4738878" vertical-offset="367" max-vertical-offset="1020">
+            <state line="27" column="24" selection-start="877" selection-end="897" vertical-scroll-proportion="0.0" vertical-offset="258" max-vertical-offset="1156">
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -41,10 +43,28 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="help_me.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="47" selection-start="141" selection-end="141" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="238">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="help_out.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_out.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="29" selection-start="124" selection-end="124" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="544">
+            <state line="0" column="0" selection-start="0" selection-end="304" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="238">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="help_out_result.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_out_result.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="81" selection-start="182" selection-end="206" vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="544">
               <folding />
             </state>
           </provider>
@@ -61,10 +81,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="help_me.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me.html">
+      <file leaf-file-name="help_me_result.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me_result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="8" selection-start="49" selection-end="49" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="238">
+            <state line="3" column="41" selection-start="129" selection-end="129" vertical-scroll-proportion="0.11409396" vertical-offset="0" max-vertical-offset="447">
               <folding />
             </state>
           </provider>
@@ -73,7 +93,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pocketwingman/templates/pocketwingman/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="236" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="238">
+            <state line="1" column="0" selection-start="48" selection-end="93" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="119">
               <folding />
             </state>
           </provider>
@@ -82,7 +102,7 @@
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pocketwingman/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="26" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+            <state line="5" column="20" selection-start="114" selection-end="130" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
               <folding />
             </state>
           </provider>
@@ -100,7 +120,7 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pocketwingman/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="77" selection-end="296" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+            <state line="7" column="54" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
               <folding />
             </state>
           </provider>
@@ -126,14 +146,16 @@
       <list>
         <option value="$PROJECT_DIR$/first_project_python/urls.py" />
         <option value="$PROJECT_DIR$/first_project_python/settings.py" />
-        <option value="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/index.html" />
         <option value="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me_all_purpose.html" />
         <option value="$PROJECT_DIR$/pocketwingman/templates/forms.py" />
-        <option value="$PROJECT_DIR$/pocketwingman/urls.py" />
-        <option value="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_out.html" />
         <option value="$PROJECT_DIR$/pocketwingman/models.py" />
         <option value="$PROJECT_DIR$/pocketwingman/forms.py" />
+        <option value="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/index.html" />
+        <option value="$PROJECT_DIR$/pocketwingman/urls.py" />
         <option value="$PROJECT_DIR$/pocketwingman/views.py" />
+        <option value="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_out.html" />
+        <option value="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me.html" />
+        <option value="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me_result.html" />
       </list>
     </option>
   </component>
@@ -433,17 +455,17 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3293011" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.213125" sideWeight="0.7298387" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.213125" sideWeight="0.67069894" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2701613" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3293011" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -461,18 +483,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pocketwingman/templates/pocketwingman/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="41" selection-start="129" selection-end="129" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="238">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/first_project_python/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="16" selection-start="4624" selection-end="4624" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2822" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pocketwingman/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="44" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="442">
@@ -514,35 +524,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pocketwingman/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="77" selection-end="296" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="8" selection-start="49" selection-end="49" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="238">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pocketwingman/templates/pocketwingman/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="236" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="238">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_out.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="29" selection-start="124" selection-end="124" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="544">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pocketwingman/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="26" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+        <state line="7" column="54" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
           <folding />
         </state>
       </provider>
@@ -558,10 +540,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pocketwingman/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="9" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.4738878" vertical-offset="367" max-vertical-offset="1020">
+        <state line="27" column="24" selection-start="877" selection-end="897" vertical-scroll-proportion="0.0" vertical-offset="258" max-vertical-offset="1156">
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pocketwingman/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="20" selection-start="114" selection-end="130" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pocketwingman/templates/pocketwingman/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="48" selection-end="93" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="119">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="47" selection-start="141" selection-end="141" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_out_result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="81" selection-start="182" selection-end="206" vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_out.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="304" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me_result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="41" selection-start="129" selection-end="129" vertical-scroll-proportion="0.11409396" vertical-offset="0" max-vertical-offset="447">
+          <folding />
         </state>
       </provider>
     </entry>

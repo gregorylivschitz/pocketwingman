@@ -1,9 +1,9 @@
-{% if latest_result_list %}
+{% if latest_category_list %}
         <ul>
-        {% for result in latest_result_list %}
-            <li>{{ result.category_result }}</li>
+        {% for category in latest_category_list %}
+            <li><a href="/pocketwingman/help_me/{{ category.id }}">{{ category.type_of_category }}</a></li>
         {% endfor %}
         </ul>
 {% else %}
-        <p>No results are available.</p>
+        <p>No Categories are available.</p>
 {% endif %}

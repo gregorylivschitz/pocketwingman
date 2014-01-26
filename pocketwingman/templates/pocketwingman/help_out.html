@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Pocketwingman</title>
-    </head>
-
-    <body>
-        <h1>Add a Result</h1>
-            <form id="result_form" method="post" action="/pocketwingman/help_out/{{category_id}}/">
-
-                {% csrf_token %}
-                {% for hidden in form.hidden_fields %}
-                    {{ hidden }}
-                {% endfor %}
-
-                {% for field in form.visible_fields %}
-                    {{ field.errors }}
-                    {{ field.help_text}}
-                    {{ field }}
-                {% endfor %}
-
-                <input type="submit" name="submit" value="Create Line" />
-            </form>
-
-    </body>
-
-</html>
+{% if latest_category_list %}
+        <ul>
+        {% for category in latest_category_list %}
+            <li><a href="/pocketwingman/help_out/{{ category.id }}">{{ category.type_of_category }}</a></li>
+        {% endfor %}
+        </ul>
+{% else %}
+        <p>No Categories are available.</p>
+{% endif %}
