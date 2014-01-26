@@ -30,15 +30,16 @@ def index(request):
 def help_me(request,category_id):
     latest_result_list = Result.objects.filter(category_id__in=[category_id])
     context = {'latest_result_list': latest_result_list}
-    return render(request, 'pocketwingman/index.html', context)
+    return render(request, 'pocketwingman/help_me.html', context)
 
-def help_out(request):
-    context = RequestContext(request)
+def help_out(request, category_id):
     if request.method == 'POST':
         form = ResultForm(request.POST)
 
         if form.is_valid():
-            form.save(commit=True)
+            form.save(commit=False)
+            form.category = category_id
+            form.save()
 
             return index(request)
 
@@ -47,6 +48,6 @@ def help_out(request):
 
     else:
         form = ResultForm
-    return render_to_response('pocketwingman/help_out.html', {'form': form}, context)
-
+    context = {'form': form, 'category_id': category_id}
+    return render(request,'pocketwingman/help_out.html', context)
 
