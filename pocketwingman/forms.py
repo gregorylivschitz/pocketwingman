@@ -15,7 +15,7 @@ class ResultForm(forms.ModelForm):
     rating = forms.DecimalField(widget=forms.HiddenInput(), initial=0)
     votes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     created_by = forms.IntegerField(widget=forms.HiddenInput(), initial=1)
-    category = forms.IntegerField(widget=forms.HiddenInput())
+    #category = forms.IntegerField(widget=forms.HiddenInput())
     class Meta:
         model = Result
-        fields = ('category_result', 'rating', 'votes')
+        fields = ('category_result', 'rating', 'votes','category')

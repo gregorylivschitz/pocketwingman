@@ -35,19 +35,20 @@ def help_me(request,category_id):
 def help_out(request, category_id):
     if request.method == 'POST':
         form = ResultForm(request.POST)
-
         if form.is_valid():
-            form.save(commit=False)
-            form.category = category_id
-            form.save()
+
+            category = Category.objects.get(id=category_id)
+            form.category = category
+            new_category = form.save(commit=False)
+            new_category.category = Category.objects.get(id=category_id)
+            new_category.save()
 
             return index(request)
 
         else:
             print form.errors
-
     else:
-        form = ResultForm
+        form = ResultForm()
     context = {'form': form, 'category_id': category_id}
     return render(request,'pocketwingman/help_out.html', context)
 

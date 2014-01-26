@@ -13,7 +13,7 @@ class Result(models.Model):
     rating = models.DecimalField('', '', 8, 3)
     votes = models.IntegerField(default=0)
     created_by = models.IntegerField(default=0, null=True, blank=True)
-    created_on = models.DateTimeField('created on')
+    created_on = models.DateTimeField(auto_now=True)
     def __unicode__(self):
         return self.category_result
 
