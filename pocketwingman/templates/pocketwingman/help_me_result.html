@@ -1,9 +1,12 @@
-{% if latest_result_list %}
+{% extends "pocketwingman/base.html" %}
+{% block body_block %}
+    {% if latest_result_list %}
         <ul>
         {% for result in latest_result_list %}
             <li>{{ result.category_result }}</li>
         {% endfor %}
         </ul>
-{% else %}
+    {% else %}
         <p>No results are available.</p>
-{% endif %}
+    {% endif %}
+{% endblock %}

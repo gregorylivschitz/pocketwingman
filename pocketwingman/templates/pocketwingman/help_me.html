@@ -1,9 +1,12 @@
-{% if latest_category_list %}
-        <ul>
-        {% for category in latest_category_list %}
-            <li><a href="/pocketwingman/help_me/{{ category.id }}">{{ category.type_of_category }}</a></li>
-        {% endfor %}
-        </ul>
-{% else %}
-        <p>No Categories are available.</p>
-{% endif %}
+{% extends "pocketwingman/base.html" %}
+{% block body_block %}
+    {% if latest_category_list %}
+            <ul>
+            {% for category in latest_category_list %}
+                <li><a href="/pocketwingman/help_me/{{ category.id }}">{{ category.type_of_category }}</a></li>
+            {% endfor %}
+            </ul>
+    {% else %}
+            <p>No Categories are available.</p>
+    {% endif %}
+{% endblock %}
