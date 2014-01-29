@@ -11,6 +11,7 @@ class Result(models.Model):
     category = models.ForeignKey(Category)
     category_result = models.CharField(max_length=200)
     rating = models.DecimalField('', '', 8, 3)
+    ratings_count = models.IntegerField(default=0)
     votes = models.IntegerField(default=0)
     created_by = models.IntegerField(default=0, null=True, blank=True)
     created_on = models.DateTimeField(auto_now=True)
