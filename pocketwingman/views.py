@@ -21,6 +21,8 @@ from pocketwingman.forms import ResultForm, CategoryForm
 #            #return Category.objects.filter().order_by('-created_on')[:5]
 #            return Result.objects.filter()
 
+
+
 def index(request):
     return render(request, 'pocketwingman/index.html')
 
