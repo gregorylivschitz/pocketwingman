@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="164e017d-ec10-4514-8a76-b07b45230c86" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/base.html" afterPath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/first_project_python.iml" afterPath="$PROJECT_DIR$/.idea/first_project_python.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/forms.py" afterPath="$PROJECT_DIR$/pocketwingman/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/index.html" afterPath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/models.py" afterPath="$PROJECT_DIR$/pocketwingman/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/views.py" afterPath="$PROJECT_DIR$/pocketwingman/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="first_project_python.iws" />
@@ -473,7 +466,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
