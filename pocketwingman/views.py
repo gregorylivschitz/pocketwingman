@@ -5,10 +5,10 @@ from django.http import request, HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.utils import timezone
-
+import random
 
 from pocketwingman.models import Category, Result
-from pocketwingman.forms import ResultForm, CategoryForm
+from pocketwingman.forms import CategoryForm, ResultFormHelpMe, ResultFormHelpOut
 
 #class IndexView(generic.ListView):
 #    template_name = 'pocketwingman/index.html'
@@ -38,13 +38,9 @@ def help_out(request):
 
 
 def help_me_result(request,category_id):
-    latest_result_list = Result.objects.filter(category_id__in=[category_id])
-    context = {'latest_result_list': latest_result_list}
-    return render(request, 'pocketwingman/help_me_result.html', context)
-
-def help_out_result(request, category_id):
     if request.method == 'POST':
-        form = ResultForm(request.POST)
+        form = ResultFormHelpMe(request.POST)
+
         if form.is_valid():
 
             category = Category.objects.get(id=category_id)
@@ -58,7 +54,29 @@ def help_out_result(request, category_id):
         else:
             print form.errors
     else:
-        form = ResultForm()
+        form = ResultFormHelpMe()
+    latest_result_list = Result.objects.raw('select * from pocketwingman_result where id=1 and category_id = ')
+    context = {'form': form, 'category_id': category_id,'latest_result_list': latest_result_list}
+    return render(request,'pocketwingman/help_me_result.html', context)
+
+
+def help_out_result(request, category_id):
+    if request.method == 'POST':
+        form = ResultFormHelpOut(request.POST)
+        if form.is_valid():
+
+            category = Category.objects.get(id=category_id)
+            form.category = category
+            new_category = form.save(commit=False)
+            new_category.category = Category.objects.get(id=category_id)
+            new_category.save()
+
+            return index(request)
+
+        else:
+            print form.errors
+    else:
+        form = ResultFormHelpOut()
     context = {'form': form, 'category_id': category_id}
     return render(request,'pocketwingman/help_out_result.html', context)
 
