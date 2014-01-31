@@ -55,7 +55,9 @@ def help_me_result(request,category_id):
             print form.errors
     else:
         form = ResultFormHelpMe()
-    latest_result_list = Result.objects.raw('select * from pocketwingman_result where id=1 and category_id = ')
+    query = 'Select * from pocketwingman_result where category_id = %s order by random() limit 1'
+    params = [category_id]
+    latest_result_list = Result.objects.raw(query, params)
     context = {'form': form, 'category_id': category_id,'latest_result_list': latest_result_list}
     return render(request,'pocketwingman/help_me_result.html', context)
 
