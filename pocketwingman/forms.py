@@ -24,7 +24,7 @@ class ResultFormHelpOut(forms.ModelForm):
 
 
 class ResultFormHelpMe(forms.ModelForm):
-    category_result = forms.CharField(max_length=200,help_text="Your best line")
+    #category_result = forms.CharField(max_length=200,help_text="Your best line")
     rating = forms.DecimalField(widget=forms.HiddenInput(), initial=0)
     votes = forms.IntegerField(widget=forms.HiddenInput(), initial=1)
     #ratings_count = forms.IntegerField(widget=forms.HiddenInput(),initial=1)
@@ -32,5 +32,5 @@ class ResultFormHelpMe(forms.ModelForm):
 
     class Meta:
         model = Result
-        exclude = ('category',)
+        exclude = ('category', 'category_result')
         #fields = ('category_result', 'rating', 'votes','category')

@@ -38,6 +38,14 @@ def help_out(request):
 
 
 def help_me_result(request,category_id):
+    form = ResultFormHelpMe()
+    query = 'Select * from pocketwingman_result where category_id = %s order by random() limit 1'
+    params = [category_id]
+    latest_result_list = Result.objects.raw(query, params)
+    context = {'form': form, 'category_id': category_id, 'latest_result_list': latest_result_list}
+    return render(request,'pocketwingman/help_me_result.html', context)
+
+def help_me_result_post(request, category_id, result_id):
     if request.method == 'POST':
         form = ResultFormHelpMe(request.POST)
 
@@ -48,18 +56,15 @@ def help_me_result(request,category_id):
             new_category = form.save(commit=False)
             new_category.category = Category.objects.get(id=category_id)
             new_category.save()
-
             return index(request)
 
         else:
             print form.errors
     else:
         form = ResultFormHelpMe()
-    query = 'Select * from pocketwingman_result where category_id = %s order by random() limit 1'
-    params = [category_id]
-    latest_result_list = Result.objects.raw(query, params)
-    context = {'form': form, 'category_id': category_id,'latest_result_list': latest_result_list}
+    context = {'form': form, 'category_id': category_id}
     return render(request,'pocketwingman/help_me_result.html', context)
+
 
 
 def help_out_result(request, category_id):

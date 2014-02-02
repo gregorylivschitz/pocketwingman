@@ -8,5 +8,5 @@ urlpatterns = patterns('',
     url(r'^help_out/$', views.help_out, name='help_out'),
     url(r'^help_me/(?P<category_id>\d+)/$', views.help_me_result, name='help_me_result'),
     url(r'^help_out/(?P<category_id>\d+)/$', views.help_out_result, name='help_out_result'),
-
+    url(r'^help_me/(?P<category_id>\d+)/?P<result_id>\d+$', views.help_me_result_post, name='help_me_result_post'),
 )
