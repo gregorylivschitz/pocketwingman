@@ -52,9 +52,35 @@ def help_me_result_post(request, category_id, result_id):
         if form.is_valid():
 
             category = Category.objects.get(id=category_id)
+
+            #Get result object from db
+            result_object = Result.objects.get(id=result_id)
+
+            #Get the ratings count from the result object
+            ratings_count = result_object.ratings_count
+
+            #Get the rating from the result object
+            rating = result_object.rating
+
+            #multiple out the rating and rating_count
+            rating_calculated = ratings_count * rating
+
+
             form.category = category
             new_category = form.save(commit=False)
+
+            #Add new rating
+            rating_calculated = new_category.rating + rating_calculated
+
+            #Add another rating
+            ratings_count = ratings_count + 1
+
+            #Calculate the correct rating
+            rating_correct = rating_calculated / ratings_count
+
             new_category.category = Category.objects.get(id=category_id)
+            new_category.ratings_count = ratings_count
+            new_category.rating = rating_correct
             new_category.save()
             return index(request)
 
