@@ -39,8 +39,8 @@ def help_out(request):
 
 def help_me_result(request,category_id):
     form = ResultFormHelpMe()
-    query = 'Select * from pocketwingman_result where category_id = %s order by random() limit 1'
-    params = [category_id]
+    query = 'select * from (select * from pocketwingman_result where category_id = %s and rating >= 3 order by rating DESC limit (select round(count(*) *.6) from pocketwingman_result where rating >= 3 and category_id = %s)) as qq where category_id = %s order by random() limit 1'
+    params = [category_id,category_id,category_id]
     latest_result_list = Result.objects.raw(query, params)
     context = {'form': form, 'category_id': category_id, 'latest_result_list': latest_result_list}
     return render(request,'pocketwingman/help_me_result.html', context)
@@ -55,6 +55,9 @@ def help_me_result_post(request, category_id, result_id):
 
             #Get result object from db
             result_object = Result.objects.get(id=result_id)
+
+            #Get the votes from the result object
+            result_votes = result_object.votes
 
             #Get the ratings count from the result object
             ratings_count = result_object.ratings_count
@@ -73,7 +76,11 @@ def help_me_result_post(request, category_id, result_id):
             rating_calculated = new_category.rating + rating_calculated
 
             #Add another rating
-            ratings_count = ratings_count + 1
+            ratings_count += 1
+
+            #Add a vote if the current rating is 3 or higher
+            if new_category.rating >= 3:
+                result_votes = result_votes + 1
 
             #Calculate the correct rating
             rating_correct = rating_calculated / ratings_count
@@ -81,6 +88,7 @@ def help_me_result_post(request, category_id, result_id):
             new_category.category = Category.objects.get(id=category_id)
             new_category.ratings_count = ratings_count
             new_category.rating = rating_correct
+            new_category.votes = result_votes
             new_category.save()
             return index(request)
 
