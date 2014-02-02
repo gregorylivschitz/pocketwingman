@@ -47,7 +47,7 @@ def help_me_result(request,category_id):
 
 def help_me_result_post(request, category_id, result_id):
     if request.method == 'POST':
-        form = ResultFormHelpMe(request.POST)
+        form = ResultFormHelpMe(request.POST, instance=Result.objects.get(pk =result_id))
 
         if form.is_valid():
 

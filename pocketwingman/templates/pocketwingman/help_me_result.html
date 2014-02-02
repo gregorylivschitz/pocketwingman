@@ -4,14 +4,8 @@
         <ul>
         {% for result in latest_result_list %}
             <li>{{ result.category_result }}</li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>No results are available.</p>
-    {% endif %}
 
-
- <form id="result_form" method="post" action="/pocketwingman/help_me/{{category_id}}/{{result_id}}">
+ <form id="result_form" method="post" action="/pocketwingman/help_me/{{category_id}}/{{result.id}}">
 
             {% csrf_token %}
             {% for hidden in form.hidden_fields %}
@@ -26,5 +20,12 @@
 
             <input type="submit" name="submit" value="Create Line" />
   </form>
+
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results are available.</p>
+    {% endif %}
+
 
  {% endblock %}
