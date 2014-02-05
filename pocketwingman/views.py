@@ -11,6 +11,10 @@ from pocketwingman.models import Category, Result
 from pocketwingman.forms import CategoryForm, ResultFormHelpMe, ResultFormHelpOut, UserForm
 
 
+def index(request):
+    return render(request, 'pocketwingman/index.html')
+
+
 @login_required
 def restricted(request):
     return HttpResponse("Since you're logged in, you can see this text!")
@@ -21,8 +25,6 @@ def user_logout(request):
 
     return HttpResponseRedirect('/pocketwingman/')
 
-def index(request):
-    return render(request, 'pocketwingman/index.html')
 
 def register(request):
     registered = False
@@ -57,7 +59,7 @@ def user_login(request):
             return HttpResponse("Invalid login details supplied.")
     else:
         context = {}
-        return render(request,'pocketwingman/login.html', context)
+        return render(request,'pocketwingman/base.html', context)
 
 
 

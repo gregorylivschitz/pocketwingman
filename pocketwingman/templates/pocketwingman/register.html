@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Pocketwingman</title>
-    </head>
+{% extends "pocketwingman/base.html" %}
+{% block body_block %}
 
-    <body>
-        <h1>Register with Pocketwingman</h1>
+
 
         {% if registered %}
-        Pocketwingman says: <strong>thank you for registering!</strong>
         <a href="/pocketwingman/">Return to the homepage.</a><br />
         {% else %}
-        Pocketwingman says: <strong>register here!</strong><br />
 
         <form id="user_form" method="post" action="/pocketwingman/register/"
                 enctype="multipart/form-data">
@@ -27,5 +21,4 @@
             <input type="submit" name="submit" value="Register" />
         </form>
         {% endif %}
-    </body>
-</html>
+{% endblock %}
