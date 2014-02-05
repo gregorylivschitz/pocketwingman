@@ -11,4 +11,6 @@ urlpatterns = patterns('',
     url(r'^help_me/(?P<category_id>\d+)/(?P<result_id>\d+)$', views.help_me_result_post, name='help_me_result_post'),
     url(r'^register/$', views.register, name='register'),
     url(r'^login/$', views.user_login, name='login'),
+    url(r'^restricted/', views.restricted, name='restricted'),
+    url(r'^logout/$', views.user_logout, name='logout'),
 )

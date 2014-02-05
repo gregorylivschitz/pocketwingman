@@ -3,13 +3,23 @@ from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.utils import timezone
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse, request
-
+from django.contrib.auth.decorators import login_required
 
 from pocketwingman.models import Category, Result
 from pocketwingman.forms import CategoryForm, ResultFormHelpMe, ResultFormHelpOut, UserForm
 
+
+@login_required
+def restricted(request):
+    return HttpResponse("Since you're logged in, you can see this text!")
+
+@login_required
+def user_logout(request):
+    logout(request)
+
+    return HttpResponseRedirect('/pocketwingman/')
 
 def index(request):
     return render(request, 'pocketwingman/index.html')

@@ -1,13 +1,7 @@
 {% extends "pocketwingman/base.html" %}
 {% block body_block %}
  <main class="bs-masthead" id="content" role="main">
-    <a href="/pocketwingman/login/">Login</a>
 
-    {% if user.is_authenticated %}
-    <h5>Rango says... hello {{ user.username }}!</h5>
-    {% else %}
-    <h5>Rango says... hello world!</h5>
-    {% endif %}
     <div class="container">
     <h1>Pocketwingman</h1>
     <p class="lead">Here to help you when it counts most.</p>
