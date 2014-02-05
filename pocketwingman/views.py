@@ -1,30 +1,57 @@
 from django.shortcuts import get_object_or_404, render
 from django.template import RequestContext
-from django.shortcuts import render_to_response
-from django.http import request, HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.utils import timezone
-import random
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponseRedirect, HttpResponse, request
+
 
 from pocketwingman.models import Category, Result
-from pocketwingman.forms import CategoryForm, ResultFormHelpMe, ResultFormHelpOut
-
-#class IndexView(generic.ListView):
-#    template_name = 'pocketwingman/index.html'
-#    context_object_name = 'latest_result_list'
-
-#    def get_queryset(self):
-#            """
-#            Return the last five categories
-#            """
-#            #return Category.objects.filter().order_by('-created_on')[:5]
-#            return Result.objects.filter()
-
+from pocketwingman.forms import CategoryForm, ResultFormHelpMe, ResultFormHelpOut, UserForm
 
 
 def index(request):
     return render(request, 'pocketwingman/index.html')
+
+def register(request):
+    registered = False
+    if request.method == 'POST':
+        user_form = UserForm(data=request.POST)
+        if user_form.is_valid():
+            user = user_form.save()
+            user.set_password(user.password)
+            user.save()
+            registered = True
+        else:
+            print user_form.errors
+    else:
+        user_form = UserForm()
+    context = {'user_form': user_form, 'registered': registered}
+    return render(request,'pocketwingman/register.html',context)
+
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect('/pocketwingman/')
+            else:
+                return HttpResponse("Your Pocketwingman account is disabled.")
+
+        else:
+            print "Invalid login details: {0}, {1}".format(username, password)
+            return HttpResponse("Invalid login details supplied.")
+    else:
+        context = {}
+        return render(request,'pocketwingman/login.html', context)
+
+
+
+
 
 def help_me(request):
     latest_category_list = Category.objects.all().order_by('id')

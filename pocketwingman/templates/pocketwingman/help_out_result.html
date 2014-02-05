@@ -1,6 +1,9 @@
 {% extends "pocketwingman/base.html" %}
 {% block body_block %}
+<div class="jumbotron">
     <h1>Add a Result</h1>
+    <br/>
+    <div class="container">
         <form id="result_form" method="post" action="/pocketwingman/help_out/{{category_id}}/">
 
             {% csrf_token %}
@@ -14,6 +17,10 @@
                 {{ field }}
             {% endfor %}
 
-            <input type="submit" name="submit" value="Create Line" />
+                   <br/>
+            <button class="btn btn-primary" type="submit" name="submit">Create Category</button>
         </form>
+    </div>
+</div>
+
 {% endblock %}
