@@ -59,10 +59,10 @@
        <form class="navbar-form navbar-left" role="search" method="post" action="/pocketwingman/login/">
             {% csrf_token %}
             <div class="form-group">
-            <input type="text" class="form-control" name="username" value="" />
+            <input type="text" class="form-control" name="username" value="" placeholder="Username" />
             </div>
 			<div class="form-group">
-            <input type="password" class="form-control" name="password" value="" />
+            <input type="password" class="form-control" name="password" value="" placeholder="Password"/>
             </div>
 
 			<button type="submit" class="btn btn-black">Submit</button>
