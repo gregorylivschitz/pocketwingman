@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.shortcuts import get_object_or_404, render
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
@@ -12,6 +14,19 @@ from pocketwingman.forms import CategoryForm, ResultFormHelpMe, ResultFormHelpOu
 
 
 def index(request):
+    if request.session.get('last_visit'):
+        # The session has a value for the last visit
+        last_visit_time = request.session.get('last_visit')
+        visits = request.session.get('visits', 0)
+
+        if (datetime.now() - datetime.strptime(last_visit_time[:-7], "%Y-%m-%d %H:%M:%S")).days > 0:
+            request.session['visits'] = visits + 1
+            request.session['last_visit'] = str(datetime.now())
+    else:
+        # The get returns None, and the session does not have a value for the last visit.
+        request.session['last_visit'] = str(datetime.now())
+        request.session['visits'] = 1
+
     return render(request, 'pocketwingman/index.html')
 
 
@@ -27,6 +42,7 @@ def user_logout(request):
 
 
 def register(request):
+
     registered = False
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
