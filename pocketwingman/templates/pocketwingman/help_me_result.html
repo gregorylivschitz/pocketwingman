@@ -1,6 +1,7 @@
 {% extends "pocketwingman/base.html" %}
 {% block body_block %}
     {% if latest_result_list %}
+        <h2> Playing on {{ mode_type }} Mode </h2>
         <ul>
         {% for result in latest_result_list %}
             <li>{{ result.category_result }}</li>

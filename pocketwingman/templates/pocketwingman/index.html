@@ -11,6 +11,17 @@
 		<a href="/pocketwingman/help_me/" class="btn btn-success" role="button">Help Me</a>
 		<a href="/pocketwingman/help_out/" class="btn btn-success" role="button">Help Out</a>
 	    <p><a href="/pocketwingman/help_me/5" class="btn btn-primary btn-lg btn-danger" role="button">Panic </a></p>
+
+        <form method="post" action="/pocketwingman/hard_mode/">
+            {% csrf_token %}
+            <button class="btn btn-primary" type="submit" name="hard_mode">Hard mode</button>
+        </form>
+
+        <form method="post" action="/pocketwingman/easy_mode/">
+            {% csrf_token %}
+            <button class="btn btn-primary" type="submit" name="easy_mode">Easy mode</button>
+        </form>
+
         </p>
     </div>
 
