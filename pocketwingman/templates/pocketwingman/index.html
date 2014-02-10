@@ -1,14 +1,20 @@
 {% extends "pocketwingman/base.html" %}
 {% block body_block %}
- <main class="bs-masthead" id="content" role="main">
-  <div class="container">
-    <h1>Pocketwingman</h1>
-    <p class="lead">Here to help you when it counts most.</p>
-    <p>
-      <a href="/pocketwingman/help_out/" class="btn btn-outline-inverse btn-lg" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Download', 'Download 3.0.3']);">Help Out</a>
-      <a href="/pocketwingman/help_me/" class="btn btn-outline-inverse btn-lg" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Download', 'Download 3.0.3']);">Help Me</a>
-    </p>
-  </div>
-</main>
+    <div class="jumbotron">
+      <div class="container">
+
+            <div class="col-md-6 col-md-offset-3">
+
+        <h2>Pocketwingman</h2>
+        <p class="lead">Here to help you when it counts most.</p>
+        <p>
+		<a href="/pocketwingman/help_me/" class="btn btn-success" role="button">Help Me</a>
+		<a href="/pocketwingman/help_out/" class="btn btn-success" role="button">Help Out</a>
+	    <p><a href="/pocketwingman/help_me/5" class="btn btn-primary btn-lg btn-danger" role="button">Panic </a></p>
+        </p>
+    </div>
+
+    </div>
+
 {% endblock %}
 

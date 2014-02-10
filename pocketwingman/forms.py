@@ -1,5 +1,14 @@
 from django import forms
 from pocketwingman.models import Result, Category
+from django.contrib.auth.models import User
+
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password')
+
 
 class CategoryForm(forms.Form):
     type_of_category = forms.CharField(max_length=200, help_text='Please enter the type of Category')
@@ -13,8 +22,8 @@ class CategoryForm(forms.Form):
 class ResultFormHelpOut(forms.ModelForm):
     category_result = forms.CharField(max_length=200,help_text="Your best line")
     rating = forms.DecimalField(widget=forms.HiddenInput(), initial=0)
-    votes = forms.IntegerField(widget=forms.HiddenInput(), initial=1)
-    ratings_count = forms.IntegerField(widget=forms.HiddenInput(),initial=1)
+    votes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
+    ratings_count = forms.IntegerField(widget=forms.HiddenInput(),initial=0)
     created_by = forms.IntegerField(widget=forms.HiddenInput(), initial=1)
 
     class Meta:
@@ -24,13 +33,8 @@ class ResultFormHelpOut(forms.ModelForm):
 
 
 class ResultFormHelpMe(forms.ModelForm):
-    #category_result = forms.CharField(max_length=200,help_text="Your best line")
-    #rating = forms.DecimalField(widget=forms.HiddenInput(), initial=0)
-    votes = forms.IntegerField(widget=forms.HiddenInput(), initial=1)
-    ratings_count = forms.IntegerField(widget=forms.HiddenInput(),initial=1)
     created_by = forms.IntegerField(widget=forms.HiddenInput(), initial=1)
 
     class Meta:
         model = Result
-        exclude = ('category', 'category_result')
-        #fields = ('category_result', 'rating', 'votes','category')
+        exclude = ('category', 'category_result','votes','ratings_count')

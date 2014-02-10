@@ -4,7 +4,7 @@
         <ul>
         {% for result in latest_result_list %}
             <li>{{ result.category_result }}</li>
-
+            <li>{{ result.rating }}</li>
  <form id="result_form" method="post" action="/pocketwingman/help_me/{{category_id}}/{{result.id}}">
 
             {% csrf_token %}
@@ -18,7 +18,7 @@
                 {{ field }}
             {% endfor %}
 
-            <input type="submit" name="submit" value="Create Line" />
+            <input type="submit" name="submit" value="Press to rate"/>
   </form>
 
         {% endfor %}
