@@ -19,7 +19,7 @@ def index(request):
         last_visit_time = request.session.get('last_visit')
         visits = request.session.get('visits', 0)
 
-        if (datetime.now() - datetime.strptime(last_visit_time[:-7], "%Y-%m-%d %H:%M:%S")).days > 0:
+        if (datetime.now() - datetime.strptime(last_visit_time[:-7], "%Y-%m-%d %H:%M:%S")).seconds > 5:
             request.session['visits'] = visits + 1
             request.session['last_visit'] = str(datetime.now())
     else:
@@ -28,6 +28,14 @@ def index(request):
         request.session['visits'] = 1
 
     return render(request, 'pocketwingman/index.html')
+
+def hard_mode(request):
+    request.session['mode'] = 'HARD'
+    return render(request,'pocketwingman/index.html')
+
+def easy_mode(request):
+    request.session['mode'] = 'EASY'
+    return render(request,'pocketwingman/index.html')
 
 
 @login_required
@@ -94,10 +102,21 @@ def help_out(request):
 
 def help_me_result(request,category_id):
     form = ResultFormHelpMe()
-    query = 'select * from (select * from pocketwingman_result where category_id = %s and rating >= 3 order by rating DESC limit (select round(count(*) *.6) from pocketwingman_result where rating >= 3 and category_id = %s)) as qq where category_id = %s order by random() limit 1'
+
+    if request.session.get('mode'):
+        mode_type = request.session.get('mode')
+    else:
+        mode_type = 'EASY'
+
+    if mode_type == 'EASY':
+        query = 'select * from (select * from pocketwingman_result where category_id = %s and rating >= 3 order by rating DESC limit (select round(count(*) *.6) from pocketwingman_result where rating >= 3 and category_id = %s)) as qq where category_id = %s order by random() limit 1'
+
+    elif mode_type == 'HARD':
+        query = 'select * from (select * from pocketwingman_result where category_id = %s and rating <= 2 order by rating DESC limit (select round(count(*) *.6) from pocketwingman_result where rating <= 2 and category_id = %s)) as qq where category_id = %s order by random() limit 1'
+
     params = [category_id,category_id,category_id]
     latest_result_list = Result.objects.raw(query, params)
-    context = {'form': form, 'category_id': category_id, 'latest_result_list': latest_result_list}
+    context = {'form': form, 'category_id': category_id, 'latest_result_list': latest_result_list, 'mode_type':mode_type}
     return render(request,'pocketwingman/help_me_result.html', context)
 
 def help_me_result_post(request, category_id, result_id):
