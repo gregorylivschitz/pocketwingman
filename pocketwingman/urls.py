@@ -13,6 +13,6 @@ urlpatterns = patterns('',
     url(r'^login/$', views.user_login, name='login'),
     url(r'^restricted/', views.restricted, name='restricted'),
     url(r'^logout/$', views.user_logout, name='logout'),
-    url(r'^hard_mode/$', views.hard_mode, name='login'),
-    url(r'^easy_mode/$', views.easy_mode, name='login'),
+    url(r'^hard_mode/$', views.hard_mode, name='hard_mode'),
+    url(r'^easy_mode/$', views.easy_mode, name='easy_mode'),
 )

@@ -14,5 +14,5 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-    url(r'^pocketwingman/', include('pocketwingman.urls', namespace="pocketwingman"))
+    url(r'^', include('pocketwingman.urls', namespace="pocketwingman"))
 )
