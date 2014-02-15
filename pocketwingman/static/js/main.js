@@ -7,4 +7,6 @@ $(document).ready(function(){
      $("#enable-easy-mode").click(function(){
         $.get("/pocketwingman/easy_mode");
     });
+
+    $("[name='my-checkbox']").bootstrapSwitch();
 });
