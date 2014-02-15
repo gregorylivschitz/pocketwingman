@@ -31,11 +31,11 @@ def index(request):
 
 def hard_mode(request):
     request.session['mode'] = 'HARD'
-    return render(request,'pocketwingman/index.html')
+    return HttpResponse()
 
 def easy_mode(request):
     request.session['mode'] = 'EASY'
-    return render(request,'pocketwingman/index.html')
+    return HttpResponse()
 
 
 @login_required
