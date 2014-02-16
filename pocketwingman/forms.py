@@ -20,21 +20,18 @@ class CategoryForm(forms.Form):
 
 
 class ResultFormHelpOut(forms.ModelForm):
-    category_result = forms.CharField(max_length=200,help_text="Your best line")
-    rating = forms.DecimalField(widget=forms.HiddenInput(), initial=0)
+    category_result = forms.CharField(max_length=200, help_text="Your best line")
     votes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
-    ratings_count = forms.IntegerField(widget=forms.HiddenInput(),initial=0)
-    created_by = forms.IntegerField(widget=forms.HiddenInput(), initial=1)
+    views = forms.IntegerField(widget=forms.HiddenInput(),initial=0)
+    #created_by = forms.IntegerField(widget=forms.HiddenInput(),initial=2)
 
     class Meta:
         model = Result
-        exclude = ('category', 'ratings_count')
-        #fields = ('category_result', 'rating', 'votes','category')
+        exclude = ('category','created_by')
 
 
 class ResultFormHelpMe(forms.ModelForm):
-    created_by = forms.IntegerField(widget=forms.HiddenInput(), initial=1)
-
+    votes = forms.IntegerField()
     class Meta:
         model = Result
-        exclude = ('category', 'category_result','votes','ratings_count')
+        exclude = ('category', 'category_result','votes', 'views','created_by')
