@@ -20,10 +20,10 @@ class Result(models.Model):
         return self.category_result
 
 
-#class ResultUser(models.Model):
-#    voted_by = models.ForeignKey(User)
-#    category_result = models.ForeignKey(Result)
-#    down_votes = models.IntegerField(default=0, null=True)
-#    up_votes = models.IntegerField(default=0, null=True)
-#    votes = models.IntegerField(default=0, null=True)
-#    created_on = models.DateTimeField(auto_now=True)
+class ResultUser(models.Model):
+    voted_by = models.ForeignKey(User)
+    category_result = models.ForeignKey(Result)
+    down_votes = models.IntegerField(null=True)
+    up_votes = models.IntegerField(null=True)
+    votes = models.IntegerField(default=0, null=True)
+    created_on = models.DateTimeField(auto_now=True)

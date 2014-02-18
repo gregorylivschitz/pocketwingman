@@ -1,5 +1,5 @@
 from django import forms
-from pocketwingman.models import Result, Category
+from pocketwingman.models import Result, Category, ResultUser
 from django.contrib.auth.models import User
 
 class UserForm(forms.ModelForm):
@@ -34,4 +34,11 @@ class ResultFormHelpMe(forms.ModelForm):
     votes = forms.IntegerField()
     class Meta:
         model = Result
-        exclude = ('category', 'category_result','votes', 'views','created_by')
+        exclude = ('category', 'category_result', 'views','created_by')
+
+
+class ResultFormHelpMeUser(forms.ModelForm):
+
+    class Meta:
+        model = ResultUser
+        exclude = ('voted_by', 'category_result', 'down_votes', 'up_votes', 'votes', 'created_on')

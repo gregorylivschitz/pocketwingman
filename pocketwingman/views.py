@@ -10,24 +10,27 @@ from django.http import HttpResponseRedirect, HttpResponse, request
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.models import User
-from pocketwingman.models import Category, Result
-from pocketwingman.forms import CategoryForm, ResultFormHelpMe, ResultFormHelpOut, UserForm
+from pocketwingman.models import Category, Result, ResultUser
+from pocketwingman.forms import CategoryForm, ResultFormHelpMe, ResultFormHelpOut, UserForm, ResultFormHelpMeUser
 
+import logging
+import sys
+
+
+log = logging.getLogger(__name__)
 
 def index(request):
     return render(request, 'pocketwingman/index.html')
 
 
 def hard_mode(request):
-    if request.method == 'POST':
-        request.session['mode'] = 'HARD'
-        return HttpResponse()
+    request.session['mode'] = 'HARD'
+    return HttpResponse()
 
 
 def easy_mode(request):
-    if request.method == 'POST':
-        request.session['mode'] = 'EASY'
-        return HttpResponse()
+    request.session['mode'] = 'EASY'
+    return HttpResponse()
 
 
 @login_required
@@ -92,7 +95,7 @@ def help_out(request):
 
 
 def help_me_result(request, category_id):
-    form = ResultFormHelpMe()
+    form_result = ResultFormHelpMe()
 
     if request.session.get('mode'):
         mode_type = request.session.get('mode')
@@ -109,16 +112,52 @@ def help_me_result(request, category_id):
 
     params = [category_id, category_id, category_id]
     latest_result_list = Result.objects.raw(query, params)
-    context = {'form': form, 'category_id': category_id, 'latest_result_list': latest_result_list,
+
+    #get 1 object 1
+    #for result in latest_result_list:
+    #    result
+
+    #Get a user object to display
+    #result = Result.objects.get(id=3)
+    #print result.user
+    #user_name = user_object.username
+
+    context = {'form_result': form_result, 'category_id': category_id, 'latest_result_list': latest_result_list,
                'mode_type': mode_type}
     return render(request, 'pocketwingman/help_me_result.html', context)
 
 
-def help_me_result_post(request, category_id, result_id):
+def help_me_result_post(request, category_id, result_id,):
     if request.method == 'POST':
-        form = ResultFormHelpMe(request.POST, instance=Result.objects.get(pk=result_id))
+        form_result = ResultFormHelpMe(request.POST, instance=Result.objects.get(pk=result_id))
+        result_id_object = Result.objects.get(id=result_id)
 
-        if form.is_valid():
+
+        if request.user.is_authenticated():
+
+            #Gets a user_id object
+            user_id = request.user
+
+            #If we can't get an object create a result_user object
+            result_object_get_created, create = ResultUser.objects.get_or_create(category_result=result_id_object,voted_by=user_id)
+
+            #make a form
+            form_result_user = ResultFormHelpMeUser(request.POST, instance=result_object_get_created)
+
+        else:
+            #Gets a user_id object
+            user_id = User.objects.get(id=1)
+
+            #If we can't get an object create a result_user object
+            result_object_get_created, create = ResultUser.objects.get_or_create(category_result=result_id_object,voted_by=user_id)
+
+            #Make a form
+            form_result_user = ResultFormHelpMeUser(request.POST, instance=result_object_get_created)
+
+
+        if form_result.is_valid() and form_result_user.is_valid:
+
+
 
             category = Category.objects.get(id=category_id)
 
@@ -131,8 +170,14 @@ def help_me_result_post(request, category_id, result_id):
             #Get the views from the result object
             result_views = result_object.views
 
-            form.category = category
-            new_category = form.save(commit=False)
+
+
+            form_result.save(commit=False)
+
+            new_category = form_result.save(commit=False)
+
+            #result_votes = result_votes + form_result.votes
+
 
             #Add another view
             result_views += 1
@@ -140,24 +185,51 @@ def help_me_result_post(request, category_id, result_id):
             #Add an up the votes from the form
             result_votes = result_votes + new_category.votes
 
-            new_category.category = Category.objects.get(id=category_id)
-            new_category.result_votes = result_votes
+            #new form for result_user
+
+            result_user_get_object = ResultUser.objects.get(category_result=result_id_object.id,voted_by=user_id)
+
+            result_user_votes = result_user_get_object.votes
+
+            result_user_votes_calculated = result_user_votes + new_category.votes
+
+
+            new_form_result_user =form_result_user.save(commit=False)
+
+            if new_category.votes < 0:
+                result_user_votes_calculated_down_votes = result_user_votes + new_category.votes
+                new_form_result_user.down_votes = result_user_votes_calculated_down_votes
+
+            else:
+                result_user_votes_calculated_up_votes = result_user_votes + new_category.votes
+                new_form_result_user.up_votes = result_user_votes_calculated_up_votes
+
+            new_form_result_user.votes = result_user_votes_calculated
+
+            new_category.category = category
+            new_category.votes = result_votes
             new_category.views = result_views
             new_category.save()
+
+            new_form_result_user.save()
+
+
+
             return index(request)
 
         else:
-            print form.errors
+            print form_result.errors
+
     else:
-        form = ResultFormHelpMe()
-    context = {'form': form, 'category_id': category_id}
+        form_result = ResultFormHelpMe()
+    context = {'form_result': form_result, 'form_result_user' : form_result_user, 'category_id': category_id}
     return render(request, 'pocketwingman/help_me_result.html', context)
 
 
 def help_out_result(request, category_id):
     if request.method == 'POST':
-        form = ResultFormHelpOut(request.POST)
-        if form.is_valid():
+        form_result = ResultFormHelpOut(request.POST)
+        if form_result.is_valid():
 
 
             if request.user.is_authenticated():
@@ -166,9 +238,9 @@ def help_out_result(request, category_id):
                 user = User.objects.get(id=current_user_id)
                 category = Category.objects.get(id=category_id)
 
-                form.category = category
-                form.created_by = user
-                new_category = form.save(commit=False)
+                form_result.category = category
+                form_result.created_by = user
+                new_category = form_result.save(commit=False)
                 new_category.category = Category.objects.get(id=category_id)
                 new_category.created_by = User.objects.get(id=current_user_id)
                 new_category.save()
@@ -179,9 +251,9 @@ def help_out_result(request, category_id):
                 user = User.objects.get(id=1)
                 category = Category.objects.get(id=category_id)
 
-                form.category = category
-                form.created_by = user
-                new_category = form.save(commit=False)
+                form_result.category = category
+                form_result.created_by = user
+                new_category = form_result.save(commit=False)
                 new_category.category = Category.objects.get(id=category_id)
                 new_category.created_by = User.objects.get(id=1)
                 new_category.save()
@@ -189,9 +261,9 @@ def help_out_result(request, category_id):
                 return index(request)
 
         else:
-            print form.errors
+            print form_result.errors
     else:
-        form = ResultFormHelpOut()
-    context = {'form': form, 'category_id': category_id}
+        form_result = ResultFormHelpOut()
+    context = {'form_result': form_result, 'category_id': category_id}
     return render(request, 'pocketwingman/help_out_result.html', context)
 

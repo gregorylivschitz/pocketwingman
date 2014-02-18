@@ -8,11 +8,11 @@ $(document).ready(function(){
         console.log(e, $element, value);
         if (value) {
             console.log("In hard mode");
-            $.post("/pocketwingman/hard_mode");
+            $.get("/pocketwingman/hard_mode");
         }
         else {
             console.log("In easy mode");
-            $.post("/pocketwingman/easy_mode");
+            $.get("/pocketwingman/easy_mode");
         }
 
     });

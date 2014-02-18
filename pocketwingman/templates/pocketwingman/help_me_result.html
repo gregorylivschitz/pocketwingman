@@ -2,18 +2,21 @@
 {% block body_block %}
     {% if latest_result_list %}
         <h2> Playing on {{ mode_type }} Mode </h2>
+        <p>{{ user_name }}</p>
         <ul>
         {% for result in latest_result_list %}
             <li>{{ result.category_result }}</li>
             <li>{{ result.votes }}</li>
+
  <form id="result_form" method="post" action="/pocketwingman/help_me/{{category_id}}/{{result.id}}">
 
             {% csrf_token %}
-            {% for hidden in form.hidden_fields %}
+            {% for hidden in form_result.hidden_fields %}
                 {{ hidden }}
             {% endfor %}
 
-            {% for field in form.visible_fields %}
+
+            {% for field in form_result.visible_fields %}
                 {{ field.errors }}
                 {{ field.help_text}}
                 {{ field }}
