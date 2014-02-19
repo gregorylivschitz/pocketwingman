@@ -118,7 +118,6 @@ def help_me_result(request, category_id):
 
 
     #Get a user object to display
-    result = Result.objects.get(id=4)
     user_name = result.created_by.username
 
 
