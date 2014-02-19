@@ -114,16 +114,16 @@ def help_me_result(request, category_id):
     latest_result_list = Result.objects.raw(query, params)
 
     #get 1 object 1
-    #for result in latest_result_list:
-    #    result
+    result = latest_result_list[0]
+
 
     #Get a user object to display
-    #result = Result.objects.get(id=3)
-    #print result.user
-    #user_name = user_object.username
+    result = Result.objects.get(id=4)
+    user_name = result.created_by.username
+
 
     context = {'form_result': form_result, 'category_id': category_id, 'latest_result_list': latest_result_list,
-               'mode_type': mode_type}
+               'mode_type': mode_type, 'user_name': user_name}
     return render(request, 'pocketwingman/help_me_result.html', context)
 
 
