@@ -18,11 +18,13 @@ $(document).ready(function(){
     $("#thumbs-up").click(function(){
         console.log("Clicked thumbs up!");
         $("#id_votes").val("1");
+        $.post($("#result_form").attr('action'), $('#result_form').serialize());
 
     });
 
     $("#thumbs-down").click(function(){
-        console.log("Clicked thumbs up!");
+        console.log("Clicked thumbs Down!");
         $("#id_votes").val("-1");
     });
+
 });
