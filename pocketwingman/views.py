@@ -6,6 +6,7 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 from django.utils import timezone
 from django.contrib.auth import authenticate, login, logout
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect, HttpResponse, request
 from django.contrib.auth.decorators import login_required
 
@@ -111,17 +112,24 @@ def help_me_result(request, category_id):
                 'from pocketwingman_result where votes < 0 and category_id = %s)) as qq where category_id = %s order by random() limit 1'
 
     params = [category_id, category_id, category_id]
-    latest_result_list = Result.objects.raw(query, params)
-
-    #get 1 object 1
-    result = latest_result_list[0]
 
 
-    #Get a user object to display
-    user_name = result.created_by.username
+    #Error handling for blank raw sql object.
+    try:
+        result_object = Result.objects.raw(query, params)[0]
+        #Get a user object to display
+        user_name = result_object.created_by.username
 
 
-    context = {'form_result': form_result, 'category_id': category_id, 'latest_result_list': latest_result_list,
+    except IndexError:
+        result_object = None
+        user_name = None
+
+
+
+
+
+    context = {'form_result': form_result, 'category_id': category_id, 'result_object': result_object,
                'mode_type': mode_type, 'user_name': user_name}
     return render(request, 'pocketwingman/help_me_result.html', context)
 
