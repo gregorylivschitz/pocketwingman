@@ -14,6 +14,15 @@ $(document).ready(function(){
             console.log("In easy mode");
             $.get("/pocketwingman/easy_mode");
         }
+    });
+    $("#thumbs-up").click(function(){
+        console.log("Clicked thumbs up!");
+        $("#id_votes").val("1");
 
+    });
+
+    $("#thumbs-down").click(function(){
+        console.log("Clicked thumbs up!");
+        $("#id_votes").val("-1");
     });
 });
