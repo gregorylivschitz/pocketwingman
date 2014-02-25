@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="164e017d-ec10-4514-8a76-b07b45230c86" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/base.html" afterPath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/first_project_python.iml" afterPath="$PROJECT_DIR$/.idea/first_project_python.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/forms.py" afterPath="$PROJECT_DIR$/pocketwingman/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me.html" afterPath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me_result.html" afterPath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me_result.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_out.html" afterPath="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_out.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/static/js/main.js" afterPath="$PROJECT_DIR$/pocketwingman/static/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/static/css/pocketwingman.css" afterPath="$PROJECT_DIR$/pocketwingman/static/css/pocketwingman.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/urls.py" afterPath="$PROJECT_DIR$/pocketwingman/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/views.py" afterPath="$PROJECT_DIR$/pocketwingman/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="first_project_python.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,10 +25,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pocketwingman/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="293" column="0" selection-start="10121" selection-end="10121" vertical-scroll-proportion="0.38672438" vertical-offset="4713" max-vertical-offset="5474">
+            <state line="299" column="8" selection-start="10240" selection-end="10240" vertical-scroll-proportion="-14.8" vertical-offset="4713" max-vertical-offset="5474">
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -94,10 +83,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pocketwingman/static/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="8" selection-start="1118" selection-end="1118" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
+            <state line="19" column="55" selection-start="635" selection-end="635" vertical-scroll-proportion="0.40807799" vertical-offset="30" max-vertical-offset="850">
               <folding />
             </state>
           </provider>
@@ -162,8 +151,8 @@
         <option value="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me.html" />
         <option value="$PROJECT_DIR$/pocketwingman/urls.py" />
         <option value="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me_result.html" />
-        <option value="$PROJECT_DIR$/pocketwingman/static/js/main.js" />
         <option value="$PROJECT_DIR$/pocketwingman/views.py" />
+        <option value="$PROJECT_DIR$/pocketwingman/static/js/main.js" />
       </list>
     </option>
   </component>
@@ -677,19 +666,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pocketwingman/static/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="8" selection-start="1118" selection-end="1118" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pocketwingman/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="293" column="0" selection-start="10121" selection-end="10121" vertical-scroll-proportion="0.38672438" vertical-offset="4713" max-vertical-offset="5474">
+        <state line="299" column="8" selection-start="10240" selection-end="10240" vertical-scroll-proportion="-14.8" vertical-offset="4713" max-vertical-offset="5474">
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pocketwingman/static/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="55" selection-start="635" selection-end="635" vertical-scroll-proportion="0.40807799" vertical-offset="30" max-vertical-offset="850">
+          <folding />
         </state>
       </provider>
     </entry>
