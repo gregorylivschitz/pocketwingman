@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="164e017d-ec10-4514-8a76-b07b45230c86" name="Default" comment="" />
+=======
+    <list default="true" id="164e017d-ec10-4514-8a76-b07b45230c86" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pocketwingman/static/js/main.js" afterPath="$PROJECT_DIR$/pocketwingman/static/js/main.js" />
+    </list>
+>>>>>>> d319559d79aa73589bc4ec9f50adb9d6ca6dfa4c
     <ignored path="first_project_python.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,10 +29,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pocketwingman/views.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="110" column="155" selection-start="3637" selection-end="3637" vertical-scroll-proportion="0.78456223" vertical-offset="1189" max-vertical-offset="5474">
+=======
+            <state line="299" column="8" selection-start="10240" selection-end="10240" vertical-scroll-proportion="-14.8" vertical-offset="4713" max-vertical-offset="5474">
+>>>>>>> d319559d79aa73589bc4ec9f50adb9d6ca6dfa4c
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -79,10 +89,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pocketwingman/static/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="32" column="8" selection-start="1118" selection-end="1118" vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="867">
+=======
+            <state line="19" column="55" selection-start="635" selection-end="635" vertical-scroll-proportion="0.40807799" vertical-offset="30" max-vertical-offset="850">
+>>>>>>> d319559d79aa73589bc4ec9f50adb9d6ca6dfa4c
               <folding />
             </state>
           </provider>
@@ -147,8 +161,8 @@
         <option value="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me.html" />
         <option value="$PROJECT_DIR$/pocketwingman/urls.py" />
         <option value="$PROJECT_DIR$/pocketwingman/templates/pocketwingman/help_me_result.html" />
-        <option value="$PROJECT_DIR$/pocketwingman/static/js/main.js" />
         <option value="$PROJECT_DIR$/pocketwingman/views.py" />
+        <option value="$PROJECT_DIR$/pocketwingman/static/js/main.js" />
       </list>
     </option>
   </component>
@@ -654,19 +668,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pocketwingman/static/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="8" selection-start="1118" selection-end="1118" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pocketwingman/views.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="110" column="155" selection-start="3637" selection-end="3637" vertical-scroll-proportion="0.78456223" vertical-offset="1189" max-vertical-offset="5474">
+=======
+        <state line="299" column="8" selection-start="10240" selection-end="10240" vertical-scroll-proportion="-14.8" vertical-offset="4713" max-vertical-offset="5474">
+>>>>>>> d319559d79aa73589bc4ec9f50adb9d6ca6dfa4c
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pocketwingman/static/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="55" selection-start="635" selection-end="635" vertical-scroll-proportion="0.40807799" vertical-offset="30" max-vertical-offset="850">
+          <folding />
         </state>
       </provider>
     </entry>

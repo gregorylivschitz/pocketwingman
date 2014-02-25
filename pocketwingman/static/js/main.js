@@ -17,14 +17,16 @@ $(document).ready(function(){
     });
     $("#thumbs-up").click(function(){
         console.log("Clicked thumbs up!");
+        category_id = $(this).attr("data-category-id");
         $("#id_votes").val("1");
         $.post($("#result_form").attr('action'), $('#result_form').serialize());
 
         $.get("/pocketwingman/help_me/ajax/" + category_id, function(data){
-        $("#user_name").html("<i>Submitted by "+data.user_name+"</i>");
-        $("#result_category_result").html(data.category_result);
-        $("#result_votes").html(data.result_vote);
+            $("#user_name").html("<i>Submitted by "+data.user_name+"</i>");
+            $("#result_category_result").html(data.category_result);
+            $("#result_votes").html(data.result_vote);
 
+        });
     });
 
     $("#thumbs-down").click(function(){
@@ -34,13 +36,10 @@ $(document).ready(function(){
         $.post($("#result_form").attr('action'), $('#result_form').serialize());
 
         $.get("/pocketwingman/help_me/ajax/" + category_id, function(data){
-            $("#user_name").html("<i>Submitted by "+data.user_name+"</i>");
+            $("#user_name").html("<i>Submitted "+data.user_name+"</i>");
             $("#result_category_result").html(data.category_result);
             $("#result_votes").html(data.result_vote);
         });
-
-
-
     });
 
 });
