@@ -15,4 +15,5 @@ urlpatterns = patterns('',
     url(r'^pocketwingman/logout/$', views.user_logout, name='logout'),
     url(r'^pocketwingman/hard_mode/$', views.hard_mode, name='hard_mode'),
     url(r"^pocketwingman/easy_mode/$", views.easy_mode, name='easy_mode'),
+    url(r'^pocketwingman/help_me/ajax/(?P<category_id>\d+)/$', views.help_me_result_ajax, name='help_me_result_ajax'),
 )

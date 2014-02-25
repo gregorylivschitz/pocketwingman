@@ -1,40 +1,66 @@
 {% extends "pocketwingman/base.html" %}
 {% block body_block %}
     {% if result_object %}
-        <h2> Playing on {{ mode_type }} Mode </h2>
+    <div class="jumbotron">
+        <div class="container-fluid">
+            <div class="row">
 
-        <p>{{ user_name }}</p>
+                <div class="col-md-8 col-md-offset-8">
+                    <span>{{ mode_type }} MODE </span>
+                </div>
+            </div>
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-8">
+                    <p id="result_category_result">{{ result_object.category_result }}</p>
+                </div>
+            </div>
+        </div>
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    <p id="result_votes">{{ result_object.votes }}</p>
+                </div>
+
+                <div class="col-md-4 col-md-offset-4">
+                    <i id="user_name">Submitted by {{ user_name }}</i>
+                </div>
 
 
-            <p>{{ result_object.category_result }}</p>
-            <p>{{ result_object.votes }}</p>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-default btn-md" id="thumbs-up" data-category-id="{{category_id}}">
+                        <span class="glyphicon glyphicon-thumbs-up"></span>
+                    </button>
 
- <form id="result_form" method="post" action="/pocketwingman/help_me/{{category_id}}/{{result_object.id}}">
-
-            {% csrf_token %}
-            {% for hidden in form_result.hidden_fields %}
-                {{ hidden }}
-            {% endfor %}
-
-
-            {% for field in form_result.visible_fields %}
-                {{ field.errors }}
-                {{ field.help_text}}
-                {{ field }}
-            {% endfor %}
-
-            <input type="submit" name="submit" value="Press to rate"/>
-  </form>
+                    <button type="button" class="btn btn-default btn-md" id="thumbs-down" data-category-id="{{category_id}}">
+                        <span class="glyphicon glyphicon-thumbs-down"></span>
+                    </button>
+                </div>
+            </div>
 
 
+                <form id="result_form" method="post" action="/pocketwingman/help_me/{{category_id}}/{{result_object.id}}">
 
-        <button type="button" class="btn btn-default btn-md" id="thumbs-up">
-            <span class="glyphicon glyphicon-thumbs-up"></span>
-        </button>
+                    {% csrf_token %}
+                    {% for hidden in form_result.hidden_fields %}
+                    {{ hidden }}
+                    {% endfor %}
 
-        <button type="button" class="btn btn-default btn-md" id="thumbs-down">
-            <span class="glyphicon glyphicon-thumbs-down"></span>
-        </button>
+
+                    {% for field in form_result.visible_fields %}
+                    {{ field.errors }}
+                    {{ field.help_text}}
+                    {{ field }}
+                    {% endfor %}
+                 </form>
+
+
+
+            </div>
+        </div>
     {% else %}
         <p>No results are available.</p>
     {% endif %}
