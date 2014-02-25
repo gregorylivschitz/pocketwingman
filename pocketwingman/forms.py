@@ -31,10 +31,10 @@ class ResultFormHelpOut(forms.ModelForm):
 
 
 class ResultFormHelpMe(forms.ModelForm):
-    votes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
+    votes = forms.IntegerField(widget=forms.HiddenInput())
     class Meta:
         model = Result
-        exclude = ('category', 'category_result', 'views','created_by','votes')
+        exclude = ('category', 'category_result', 'views','created_by')
 
 
 class ResultFormHelpMeUser(forms.ModelForm):

@@ -1,11 +1,20 @@
 {% extends "pocketwingman/base.html" %}
 {% block body_block %}
     {% if latest_category_list %}
-            <ul>
-            {% for category in latest_category_list %}
-                <li><a href="/pocketwingman/help_me/{{ category.id }}">{{ category.type_of_category }}</a></li>
+           <div class="row">
+                {% for category in latest_category_list %}
+
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <a href="/pocketwingman/help_me/{{ category.id }}">
+                            <img data-src="holder.js/300x200" alt="..."></a>
+                            <div class="caption">
+                                <h3>{{ category.type_of_category }}</h3>
+                            </div>
+                        </div>
+                    </div>
             {% endfor %}
-            </ul>
+            </div>
     {% else %}
             <p>No Categories are available.</p>
     {% endif %}
