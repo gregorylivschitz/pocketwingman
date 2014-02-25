@@ -108,7 +108,7 @@ def help_me_result(request, category_id):
                 'from pocketwingman_result where votes >= 0 and category_id = %s)) as qq where category_id = %s order by random() limit 1'
 
     elif mode_type == 'HARD':
-        query = 'select * from (select * from pocketwingman_result where category_id = %s and votes < 0 order by votes DESC limit (select round(count(*) 1) ' \
+        query = 'select * from (select * from pocketwingman_result where category_id = %s and votes < 0 order by votes DESC limit (select round(count(*) * 1) ' \
                 'from pocketwingman_result where votes < 0 and category_id = %s)) as qq where category_id = %s order by random() limit 1'
 
     params = [category_id, category_id, category_id]
