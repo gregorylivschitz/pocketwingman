@@ -27,6 +27,7 @@ $(document).ready(function(){
                 $("#user_name").html("<i>Submitted "+data.user_name+"</i>");
                 $("#result_category_result").html(data.category_result);
                 $("#result_votes").html(data.result_vote);
+                $("#result_form").attr("action", "/pocketwingman/help_me/" + data.category_id + "/" + data.result_id);
                 });
             });
     });
@@ -43,6 +44,7 @@ $(document).ready(function(){
                 $("#user_name").html("<i>Submitted "+data.user_name+"</i>");
                 $("#result_category_result").html(data.category_result);
                 $("#result_votes").html(data.result_vote);
+                $("#result_form").attr("action", "/pocketwingman/help_me/" + data.category_id + "/" + data.result_id);
                 });
             });
     });

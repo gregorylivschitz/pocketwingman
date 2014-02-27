@@ -179,7 +179,6 @@ def help_me_result_post(request, category_id, result_id,):
             result_views = result_object.views
 
 
-
             form_result.save(commit=False)
 
             new_category = form_result.save(commit=False)
@@ -218,6 +217,10 @@ def help_me_result_post(request, category_id, result_id,):
             new_category.category = category
             new_category.votes = result_votes
             new_category.views = result_views
+
+
+            print 'The new vote is ' +  str(result_votes)
+            print 'We voted for ' + str(new_category.category_result)
             new_category.save()
 
             new_form_result_user.save()
@@ -304,8 +307,8 @@ def help_me_result_ajax(request, category_id):
         user_name = result_object.created_by.username
 
         #Get a vote int
-        result_vote= result_object.votes
-
+        result_vote = result_object.votes
+        result_id = result_object.id
         #Get a category object
         category_result = result_object.category_result
 
@@ -314,5 +317,5 @@ def help_me_result_ajax(request, category_id):
         result_object = None
         user_name = None
 
-    context = {'category_id': category_id, 'result_vote': result_vote, 'user_name': user_name, 'category_result': category_result}
+    context = {'category_id': category_id, 'result_vote': result_vote, 'user_name': user_name, 'category_result': category_result, 'result_id': result_id}
     return HttpResponse(json.dumps(context), content_type="application/json")
