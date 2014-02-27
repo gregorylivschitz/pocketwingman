@@ -26,7 +26,6 @@ def index(request):
     else:
         mode_type = 'EASY'
 
-    print mode_type
     context = {'mode_type': mode_type}
 
     return render(request, 'pocketwingman/index.html', context)
