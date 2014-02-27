@@ -25,8 +25,6 @@ def index(request):
         mode_type = request.session.get('mode')
     else:
         mode_type = 'EASY'
-
-    print mode_type
     context = {'mode_type': mode_type}
 
     return render(request, 'pocketwingman/index.html', context)
@@ -125,10 +123,17 @@ def help_me_result(request, category_id):
     #Error handling for blank raw sql object.
     try:
         result_object = Result.objects.raw(query, params)[0]
+
+        #Add a view to result object
+        result_object.views = result_object.views + 1
+
         #Get a user object to display
         user_name = result_object.created_by.username
 
 
+        #save the views
+        result_object.save()
+        
     except IndexError:
         result_object = None
         user_name = None
@@ -183,9 +188,6 @@ def help_me_result_post(request, category_id, result_id,):
             #Get the votes from the result object
             result_votes = result_object.votes
 
-            #Get the views from the result object
-            result_views = result_object.views
-
 
             form_result.save(commit=False)
 
@@ -194,8 +196,6 @@ def help_me_result_post(request, category_id, result_id,):
             #result_votes = result_votes + form_result.votes
 
 
-            #Add another view
-            result_views += 1
 
             #Add an up the votes from the form
             result_votes = result_votes + new_category.votes
@@ -224,7 +224,6 @@ def help_me_result_post(request, category_id, result_id,):
 
             new_category.category = category
             new_category.votes = result_votes
-            new_category.views = result_views
 
 
             print 'The new vote is ' +  str(result_votes)
@@ -311,6 +310,11 @@ def help_me_result_ajax(request, category_id):
     #Error handling for blank raw sql object.
     try:
         result_object = Result.objects.raw(query, params)[0]
+
+        #Add a view to result object
+        result_object.views = result_object.views + 1
+
+
         #Get a user object to display
         user_name = result_object.created_by.username
 
@@ -320,7 +324,8 @@ def help_me_result_ajax(request, category_id):
         #Get a category object
         category_result = result_object.category_result
 
-
+        #save the views
+        result_object.save()
     except IndexError:
         result_object = None
         user_name = None

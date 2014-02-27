@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/first_project_python.iml" filepath="$PROJECT_DIR$/.idea/first_project_python.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pocketwingman.iml" filepath="$PROJECT_DIR$/.idea/pocketwingman.iml" />
     </modules>
   </component>
 </project>
