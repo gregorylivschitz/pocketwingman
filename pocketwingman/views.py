@@ -21,7 +21,14 @@ import json
 log = logging.getLogger(__name__)
 
 def index(request):
-    return render(request, 'pocketwingman/index.html')
+    if request.session.get('mode'):
+        mode_type = request.session.get('mode')
+    else:
+        mode_type = 'EASY'
+
+    context = {'mode_type': mode_type}
+
+    return render(request, 'pocketwingman/index.html', context)
 
 
 def hard_mode(request):
