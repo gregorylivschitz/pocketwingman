@@ -124,6 +124,7 @@ def help_me_result(request, category_id):
     try:
         result_object = Result.objects.raw(query, params)[0]
 
+        result_views = result_object.views
         #Add a view to result object
         result_object.views = result_object.views + 1
 
@@ -133,7 +134,7 @@ def help_me_result(request, category_id):
 
         #save the views
         result_object.save()
-        
+
     except IndexError:
         result_object = None
         user_name = None
@@ -143,7 +144,7 @@ def help_me_result(request, category_id):
 
 
     context = {'form_result': form_result, 'category_id': category_id, 'result_object': result_object,
-               'mode_type': mode_type, 'user_name': user_name}
+               'mode_type': mode_type, 'user_name': user_name, 'result_views': result_views}
     return render(request, 'pocketwingman/help_me_result.html', context)
 
 
@@ -312,6 +313,7 @@ def help_me_result_ajax(request, category_id):
         result_object = Result.objects.raw(query, params)[0]
 
         #Add a view to result object
+        result_views = result_object.views
         result_object.views = result_object.views + 1
 
 
@@ -330,5 +332,6 @@ def help_me_result_ajax(request, category_id):
         result_object = None
         user_name = None
 
-    context = {'category_id': category_id, 'result_vote': result_vote, 'user_name': user_name, 'category_result': category_result, 'result_id': result_id}
+    context = {'category_id': category_id, 'result_vote': result_vote, 'user_name': user_name,
+               'category_result': category_result, 'result_id': result_id, 'result_views': result_views}
     return HttpResponse(json.dumps(context), content_type="application/json")
