@@ -136,6 +136,7 @@ def help_me_result(request, category_id):
 
 def help_me_result_post(request, category_id, result_id,):
     if request.method == 'POST':
+        print 'we made it into help me post!!'
         form_result = ResultFormHelpMe(request.POST, instance=Result.objects.get(pk=result_id))
         result_id_object = Result.objects.get(id=result_id)
 
@@ -192,6 +193,7 @@ def help_me_result_post(request, category_id, result_id,):
             #Add an up the votes from the form
             result_votes = result_votes + new_category.votes
 
+            print 'The vote submited is ' + str(new_category.votes)
             #new form for result_user
 
             result_user_get_object = ResultUser.objects.get(category_result=result_id_object.id,voted_by=user_id)
