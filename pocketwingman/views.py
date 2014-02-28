@@ -89,6 +89,10 @@ def user_login(request):
         return render(request, 'pocketwingman/base.html', context)
 
 
+def about(request):
+    return render(request, 'pocketwingman/about.html')
+
+
 def help_me(request):
     latest_category_list = Category.objects.all().order_by('id')
     context = {'latest_category_list': latest_category_list}
@@ -138,7 +142,7 @@ def help_me_result(request, category_id):
     except IndexError:
         result_object = None
         user_name = None
-
+        result_views = None
 
 
 

@@ -44,7 +44,8 @@ $(document).ready(function(){
                 console.log("Did Thumbs down get");
                 $("#user_name").html("<i>Submitted by "+data.user_name+"</i>");
                 $("#result_category_result").html(data.category_result);
-                $("#result_votes").html(data.result_vote);
+                $("#result_votes").html("Votes " + data.result_vote);
+                $("#result_views").html("Views " + data.result_views);
                 $("#result_form").attr("action", "/pocketwingman/help_me/" + data.category_id + "/" + data.result_id);
                 });
             });
