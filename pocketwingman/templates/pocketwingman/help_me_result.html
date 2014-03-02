@@ -10,14 +10,13 @@
                 </div>
             </div>
 
-        <div class="container-fluid">
+
 
             <div class="row">
                 <div class="col-md-8">
                     <p id="result_category_result">{{ result_object.category_result }}</p>
                 </div>
             </div>
-        </div>
 
             <div class="row">
 
@@ -46,7 +45,7 @@
                 </div>
             </div>
 
-
+            <div class="row">
                 <form id="result_form" method="post" action="/pocketwingman/help_me/{{category_id}}/{{result_object.id}}">
 
                     {% csrf_token %}
@@ -61,6 +60,7 @@
                     {{ field }}
                     {% endfor %}
                  </form>
+            </div>
 
 
 

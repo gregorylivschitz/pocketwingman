@@ -2,7 +2,7 @@
 {% block body_block %}
 {% load addcss %}
 <div class="jumbotron">
-    <div class="container">
+    <div class="container-fluid">
         <form id="result_form" method="post" action="/pocketwingman/help_out/{{category_id}}/">
 
             {% csrf_token %}
@@ -22,19 +22,20 @@
 
                 <row>
                         {{ field.errors }}
-                    <div class="col-md-4">
-                        {{ field.help_text}}
+                    <div class="col-md-2">
+                        <span>{{ field.help_text}}</span>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <!--custom filter made in django pass it a value it will make a class-->
                         {{ field|addcss:"form-control" }}
                     </div>
 
 
-                        {% endfor %}
-                    <div class="col-md-4 col-md-offset-4">
+
+                    <div class="col-md-2">
                         <button class="btn btn-success" type="submit" name="submit">Give Tip</button>
                     </div>
+                    {% endfor %}
                 </row>
         </form>
     </div>
