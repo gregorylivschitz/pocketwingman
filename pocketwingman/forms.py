@@ -22,7 +22,7 @@ class CategoryForm(forms.Form):
 class ResultFormHelpOut(forms.ModelForm):
     category_result = forms.CharField(max_length=200, help_text="Your best line")
     votes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
-    views = forms.IntegerField(widget=forms.HiddenInput(),initial=0)
+    views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     #created_by = forms.IntegerField(widget=forms.HiddenInput(),initial=2)
 
     class Meta:
