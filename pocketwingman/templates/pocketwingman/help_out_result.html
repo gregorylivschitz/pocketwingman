@@ -2,8 +2,8 @@
 {% block body_block %}
 {% load addcss %}
 <div class="jumbotron">
-    <div class="container-fluid">
-        <form id="result_form" method="post" action="/pocketwingman/help_out/{{category_id}}/">
+    <div class="container">
+    <form id="result_form" method="post" action="/pocketwingman/help_out/{{category_id}}/">
 
             {% csrf_token %}
 
@@ -22,19 +22,20 @@
 
                 <row>
                         {{ field.errors }}
-                    <div class="col-md-2">
-                        <span>{{ field.help_text}}</span>
+                    <div class="col-md-4">
+                        <span> Please submit your best advice: </span>
                     </div>
                     <div class="col-md-4">
+                          <div class="input-group">
                         <!--custom filter made in django pass it a value it will make a class-->
                         {{ field|addcss:"form-control" }}
-                    </div>
+                           <span class="input-group-btn">
+                                       <button class="btn btn-success" type="submit" name="submit">Submit</button>
+                                     </span>
 
+                            </div>
+                        </div>
 
-
-                    <div class="col-md-2">
-                        <button class="btn btn-success" type="submit" name="submit">Give Tip</button>
-                    </div>
                     {% endfor %}
                 </row>
         </form>
