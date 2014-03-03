@@ -282,7 +282,9 @@ def help_out_result(request, category_id):
                 new_category.created_by = User.objects.get(id=1)
                 new_category.save()
 
-                return index(request)
+                result_object = Result.objects.get(id=new_category.id)
+                context = {'form_result': form_result, 'category_id': category_id, 'result_object': result_object}
+                return render(request, 'pocketwingman/help_me_result.html', context)
 
         else:
             print form_result.errors

@@ -52,13 +52,6 @@
                     {% for hidden in form_result.hidden_fields %}
                     {{ hidden }}
                     {% endfor %}
-
-
-                    {% for field in form_result.visible_fields %}
-                    {{ field.errors }}
-                    {{ field.help_text}}
-                    {{ field }}
-                    {% endfor %}
                  </form>
             </div>
 

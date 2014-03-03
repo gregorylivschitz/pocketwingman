@@ -1,9 +1,3 @@
-body { padding-top: 60px; }
-@media screen and (max-width: 768px) {
-    body { padding-top: 0px; }
-}
-
-
 .btn-xlg {
   padding: 10px 30px;
   font-size: 15px;
