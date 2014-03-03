@@ -10,24 +10,23 @@
                 </div>
             </div>
 
-        <div class="container-fluid">
+
 
             <div class="row">
                 <div class="col-md-8">
-                    <p id="result_category_result">{{ result_object.category_result }}</p>
+                    <span id="result_category_result">{{ result_object.category_result }}</span>
                 </div>
             </div>
-        </div>
 
             <div class="row">
 
                 <div class="col-md-2">
-                    <p id="result_votes">Votes: {{ result_object.votes }}</p>
+                    <span id="result_votes">Votes: {{ result_object.votes }}</span>
                 </div>
 
 
                 <div class="col-md-2">
-                    <p id="result_views">Views: {{ result_object.views }}</p>
+                    <span id="result_views">Views: {{ result_object.views }}</span>
                 </div>
 
                 <div class="col-md-4 col-md-offset-4">
@@ -46,7 +45,7 @@
                 </div>
             </div>
 
-
+            <div class="row">
                 <form id="result_form" method="post" action="/pocketwingman/help_me/{{category_id}}/{{result_object.id}}">
 
                     {% csrf_token %}
@@ -61,6 +60,7 @@
                     {{ field }}
                     {% endfor %}
                  </form>
+            </div>
 
 
 

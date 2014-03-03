@@ -1,10 +1,9 @@
 {% extends "pocketwingman/base.html" %}
 {% block body_block %}
+{% load addcss %}
 <div class="jumbotron">
-    <h1>Add a Result</h1>
-    <br/>
     <div class="container">
-        <form id="result_form" method="post" action="/pocketwingman/help_out/{{category_id}}/">
+    <form id="result_form" method="post" action="/pocketwingman/help_out/{{category_id}}/">
 
             {% csrf_token %}
 
@@ -19,13 +18,26 @@
 
 
             {% for field in form_result.visible_fields %}
-                {{ field.errors }}
-                {{ field.help_text}}
-                {{ field }}
-            {% endfor %}
 
-                   <br/>
-            <button class="btn btn-primary" type="submit" name="submit">Give Tip</button>
+
+                <row>
+                        {{ field.errors }}
+                    <div class="col-md-4">
+                        <span> Please submit your best advice: </span>
+                    </div>
+                    <div class="col-md-4">
+                          <div class="input-group">
+                        <!--custom filter made in django pass it a value it will make a class-->
+                        {{ field|addcss:"form-control" }}
+                           <span class="input-group-btn">
+                                       <button class="btn btn-success" type="submit" name="submit">Submit</button>
+                                     </span>
+
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </row>
         </form>
     </div>
 </div>
