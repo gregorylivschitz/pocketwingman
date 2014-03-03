@@ -251,6 +251,12 @@ def help_me_result_post(request, category_id, result_id,):
 
 
 def help_out_result(request, category_id):
+
+    if request.session.get('mode'):
+        mode_type = request.session.get('mode')
+    else:
+        mode_type = 'EASY'
+
     if request.method == 'POST':
         form_result = ResultFormHelpOut(request.POST)
         if form_result.is_valid():
@@ -269,7 +275,10 @@ def help_out_result(request, category_id):
                 new_category.created_by = User.objects.get(id=current_user_id)
                 new_category.save()
 
-                return index(request)
+                result_object = Result.objects.get(id=new_category.id)
+                context = {'form_result': form_result, 'category_id': category_id, 'result_object': result_object,
+                           'mode_type': mode_type}
+                return render(request, 'pocketwingman/help_me_result.html', context)
             else:
                 #Set all anonymous users to 1
                 user = User.objects.get(id=1)
@@ -283,7 +292,8 @@ def help_out_result(request, category_id):
                 new_category.save()
 
                 result_object = Result.objects.get(id=new_category.id)
-                context = {'form_result': form_result, 'category_id': category_id, 'result_object': result_object}
+                context = {'form_result': form_result, 'category_id': category_id, 'result_object': result_object,
+                'mode_type': mode_type}
                 return render(request, 'pocketwingman/help_me_result.html', context)
 
         else:
