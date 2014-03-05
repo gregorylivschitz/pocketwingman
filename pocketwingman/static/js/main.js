@@ -1,5 +1,14 @@
 $(document).ready(function(){
 
+    mode_type = $("#enable-easy-mode-switch").attr("data-mode-id");
+    console.log("This is the mode type: " + mode_type);
+    if (mode_type == "HARD"){
+        console.log("We are in hard_mode please render it!");
+        $("#enable-easy-mode-switch").prop( "checked", true );
+    }
+
+
+
     $("[name='my-checkbox']").bootstrapSwitch();
 
     $('#enable-easy-mode-switch').on('switchChange', function (e, data) {
@@ -50,5 +59,7 @@ $(document).ready(function(){
                 });
             });
     });
+
+
 
 });
